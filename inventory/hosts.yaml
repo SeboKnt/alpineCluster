@@ -1,0 +1,14 @@
+all:
+  hosts:
+    schwalbe.youngandhungry.org:
+    spatz.youngandhungry.org:
+    zwerggans.youngandhungry.org:
+
+Hauptmann:
+  hosts:
+    schwalbe.youngandhungry.org:
+
+Leutnant:
+  hosts:
+    spatz.youngandhungry.org:
+    zwerggans.youngandhungry.org:

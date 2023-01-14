@@ -1,0 +1,18 @@
+---
+- name: Update repositories and install curl package
+  community.general.apk:
+    name: curl, python3, tar
+    update_cache: true
+
+- name: download helm
+  ansible.builtin.unarchive:
+    src: https://get.helm.sh/helm-v3.10.3-linux-amd64.tar.gz
+    dest: /tmp/
+    remote_src: yes
+
+- name: copy helm into /usr/local/bin
+  ansible.builtin.copy:
+    src: /tmp/linux-amd64/helm
+    dest: /usr/local/bin/helm
+    remote_src: true
+    mode: '0744'

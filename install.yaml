@@ -1,0 +1,13 @@
+---
+- hosts: all
+  roles:
+    - role: prep
+
+#- hosts: Hauptmann
+#  roles:
+#    - role: k3s/Hauptnamm
+
+#- hosts: Leutnant
+#  roles:
+#    - role: k3s/Leutnant
+

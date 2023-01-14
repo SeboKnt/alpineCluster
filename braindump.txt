@@ -1,0 +1,7 @@
+# Sagt der Name schon
+
+- Bitte cloud.ini schreiben
+    mit ssh key
+    apk add python3 curl
+    ip as hostname?
+    secret token
