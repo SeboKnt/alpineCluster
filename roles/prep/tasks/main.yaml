@@ -1,7 +1,7 @@
 ---
 - name: Update repositories and install curl package
   community.general.apk:
-    name: curl, python3, tar, docker
+    name: curl, python3, tar, docker, docker-compose
     update_cache: true
     repository: http://dl-cdn.alpinelinux.org/alpine/v3.16/community
 
