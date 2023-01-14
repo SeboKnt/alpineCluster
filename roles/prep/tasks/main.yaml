@@ -1,8 +1,9 @@
 ---
 - name: Update repositories and install curl package
   community.general.apk:
-    name: curl, python3, tar
+    name: curl, python3, tar, docker
     update_cache: true
+    repository: http://dl-cdn.alpinelinux.org/alpine/v3.16/community
 
 - name: download helm
   ansible.builtin.unarchive:
