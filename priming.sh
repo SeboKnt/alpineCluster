@@ -1,5 +1,9 @@
 #!/bin/bash
 
-ssh root@schwalbe.youngandhungry.org "apk add python3 curl"
-ssh root@spatz.youngandhungry.org "apk add python3 curl"
-ssh root@zwerggans.youngandhungry.org "apk add python3 curl"
+server=("schwalbe" "spatz" "zwerggans")
+
+for hosts in "${server[@]}"
+do
+   ssh-copy-id -i ~/.ssh/*.pub root@$hosts
+   ssh root@$hosts.youngandhungry.org "apk add python3"
+done

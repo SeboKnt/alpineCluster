@@ -29,6 +29,12 @@
     remote_src: true
     mode: '0744'
 
+#- name: Generate an OpenSSH keypair with the default values (4096 bits, rsa) and encrypted private key
+#  community.crypto.openssh_keypair:
+#    path: /tmp/id_ssh_rsa
+#    passphrase: super_secret_password
+#    register: public_key
+
 #- name: Recursively remove everything in /tmp/
 #  ansible.builtin.file:
 #    path: /tmp/*
