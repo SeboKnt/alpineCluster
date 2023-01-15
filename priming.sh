@@ -1,5 +1,7 @@
 #!/bin/bash
 
+ssh-keygen -t rsa -b 4096
+
 server=("schwalbe" "spatz" "zwerggans")
 
 for hosts in "${server[@]}"
