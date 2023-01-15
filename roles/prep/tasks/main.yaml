@@ -32,8 +32,7 @@
 - name: Generate an OpenSSH keypair with the default values (4096 bits, rsa) and encrypted private key
   community.crypto.openssh_keypair:
     path: ~/.ssh/id_rsa
-    passphrase: super_secret_password
-    register: public_key
+    passphrase: passwd
 
 - name: fetch all public ssh keys
   shell: cat ~/.ssh/id_rsa.pub
