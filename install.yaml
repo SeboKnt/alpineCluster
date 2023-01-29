@@ -3,14 +3,18 @@
   roles:
     - role: prep
 
-#- hosts: Hauptmann
-#  roles:
-#    - role: k3s/Hauptnamm
+- hosts: Hauptmann
+  roles:
+    - role: k3s/Hauptnamm
 
-#- hosts: Leutnant
-#  roles:
-#    - role: k3s/Leutnant
+- hosts: Leutnant
+  roles:
+    - role: k3s/Leutnant
+
+- hosts: all
+  roles:
+    - role: k3s/helm
 
 - hosts: Hauptmann
   roles:
-    - role: longhorn
+    - role: k3s/longhorn
