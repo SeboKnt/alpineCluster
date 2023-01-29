@@ -1,0 +1,10 @@
+---
+### IMPORTANT NOTE: helm repo add longhorn https://charts.longhorn.io
+##    --> in k3s/helm
+
+- name: Deploy longhorn
+  kubernetes.core.helm:
+    name: longhorn
+    chart_ref: longhorn/longhorn
+    release_namespace: longhorn-system
+    create_namespace: true
