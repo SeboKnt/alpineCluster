@@ -7,8 +7,12 @@
 
 - name: Update repositories and install curl package
   community.general.apk:
-    name: curl, python3, tar
+    name: curl, tar, python3, py3-pip
     update_cache: true
+
+- name: Install python packages
+  ansible.builtin.pip:
+    name: pyyaml
 
 #- name: Recursively remove everything in /tmp/
 #  ansible.builtin.file:
