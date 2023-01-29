@@ -11,3 +11,6 @@
 #  roles:
 #    - role: k3s/Leutnant
 
+- hosts: Hauptmann
+  roles:
+    - role: longhorn
