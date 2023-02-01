@@ -1,0 +1,13 @@
+---
+- name: copy Values.yml into the right path
+  ansible.builtin.copy:
+    src: "Values.yaml"
+    dest: "/root/"
+
+- name: helm install mongodb
+  kubernetes.core.helm:
+    name: mongo
+    namespace: default
+    chart_ref: bitnami/mongodb
+    values_files:
+      - "/root/Values.yaml"

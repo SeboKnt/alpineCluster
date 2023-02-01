@@ -18,3 +18,4 @@
 - hosts: Hauptmann
   roles:
     - role: k3s/longhorn
+    - role: k3s/database
