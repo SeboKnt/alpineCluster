@@ -1,0 +1,8 @@
+---
+- name: helm install mongodb
+  kubernetes.core.helm:
+    name: mongo
+    namespace: default
+    chart_ref: bitnami/mongodb
+    values_files:
+      - "/home/user/mongoValues.yml"
