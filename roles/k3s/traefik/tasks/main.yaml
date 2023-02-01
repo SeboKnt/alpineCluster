@@ -1,0 +1,5 @@
+---
+- name: copy Values.yml into the right path
+  ansible.builtin.copy:
+    src: ""
+    dest: "/root/"
