@@ -1,5 +1,12 @@
 ---
-- name: copy Values.yml into the right path
-  ansible.builtin.copy:
-    src: ""
-    dest: "/root/"
+#- name: copy Values.yml into the right path
+#  ansible.builtin.copy:
+#    src: "example"
+#    dest: "/root/example/"
+
+- name: Create a Deployment by reading the definition from a local file
+  kubernetes.core.k8s:
+    state: present
+    src: example/whoami.yaml
+
+### "Error accessing example/whoami.yaml. Does the file exist?"} 
