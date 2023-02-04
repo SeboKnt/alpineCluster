@@ -18,4 +18,6 @@ for hosts in "${server[@]}"
 do
    ssh-copy-id -i ~/.ssh/*.pub root@$hosts.youngandhungry.org
    ssh root@$hosts.youngandhungry.org "apk add python3"
+   ssh root@$hosts.youngandhungry.org "echo $hosts > /etc/hostname"
+   ssh root@$hosts.youngandhungry.org "reboot"
 done
