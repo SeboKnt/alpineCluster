@@ -5,12 +5,9 @@ metadata:
   labels: 
     app: apachephp
 spec:
-  type: ClusterIP
   ports:
-    - port: 8080
+    - port: 80
       targetPort: 80
       protocol: TCP
-  externalIPs:
-    - 23.88.97.13
   selector:
      app: apachephp
