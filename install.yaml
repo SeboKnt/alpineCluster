@@ -1,22 +1,23 @@
 ---
-- hosts: all
-  roles:
-    - role: prep
+#- hosts: all
+#  roles:
+#    - role: prep
+#
+#- hosts: Hauptmann
+#  roles:
+#    - role: k3s/01Hauptmann
+#
+#- hosts: Leutnant
+#  roles:
+#    - role: k3s/02Leutnant
+#
+#- hosts: all
+#  roles:
+#    - role: k3s/03Helm
 
 - hosts: Hauptmann
   roles:
-    - role: k3s/01Hauptmann
-
-- hosts: Leutnant
-  roles:
-    - role: k3s/02Leutnant
-
-- hosts: all
-  roles:
-    - role: k3s/03Helm
-
-#- hosts: Hauptmann
-#  roles:
-#    #- role: k3s/04Longhorn
+#    - role: k3s/04Longhorn
+    - role: k3s/05Bind9
 #    #- role: k3s/database
 #    - role: k3s/zz_Traefik
