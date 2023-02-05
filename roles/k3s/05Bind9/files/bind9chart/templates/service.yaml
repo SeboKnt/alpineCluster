@@ -13,3 +13,5 @@ spec:
   externalIPs:
     - 168.119.172.132
     - 49.12.236.130
+  selector:
+     app: bind9
