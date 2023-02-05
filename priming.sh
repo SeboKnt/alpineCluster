@@ -13,9 +13,10 @@ sudo apt update && sudo apt install terraform
 terraform init
 terraform apply
 
-server=("schwalbe" "spatz" "zwerggans")
+server=("schwalbe" "spatz" "zwerggans" "colibri" "kiwi")
 for hosts in "${server[@]}"
 do
+   ssh-keyscan $hosts
    ssh-copy-id -i ~/.ssh/*.pub root@$hosts.youngandhungry.org
    ssh root@$hosts.youngandhungry.org "apk add python3"
    ssh root@$hosts.youngandhungry.org "echo $hosts > /etc/hostname"

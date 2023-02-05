@@ -6,11 +6,11 @@ provider "hcloud" {
   token = "${var.hcloud_token}"
 }
 
-data "hcloud_primary_ip" "ip-ns1" {
+data "hcloud_primary_ip" "ip-colibri" {
   ip_address = "168.119.172.132"
 }
 
-data "hcloud_primary_ip" "ip-ns2" {
+data "hcloud_primary_ip" "ip-kiwi" {
   ip_address = "49.12.236.130"
 }
 
@@ -28,6 +28,30 @@ data "hcloud_primary_ip" "ip-schwalbe" {
 
 data "hcloud_image" "mint" {
   with_selector = "origin"
+}
+
+resource "hcloud_server" "node-colibri" {
+  name        = "colibri"
+  image       = data.hcloud_image.mint.id
+  server_type = "cx21"
+  location    = "nbg1"
+  public_net {
+    ipv4_enabled = true
+    ipv4 = data.hcloud_primary_ip.ip-colibri.id
+    ipv6_enabled = true
+  }
+}
+
+resource "hcloud_server" "node-kiwi" {
+  name        = "kiwi"
+  image       = data.hcloud_image.mint.id
+  server_type = "cx21"
+  location    = "nbg1"
+  public_net {
+    ipv4_enabled = true
+    ipv4 = data.hcloud_primary_ip.ip-kiwi.id
+    ipv6_enabled = true
+  }
 }
 
 resource "hcloud_server" "node-zwerggans" {

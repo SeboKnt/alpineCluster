@@ -1,0 +1,53 @@
+$TTL 15
+$ORIGIN ch13f.de.
+
+
+; -- SOA Records --
+@               IN      SOA     ns1.ch13f.de. info.ch13f.de. (
+                                2023012509      ; serial
+                                86400           ; refresh
+                                10800           ; retry
+                                3600000         ; expire
+                                3               ; minimum ttl
+                                )
+
+
+; -- NS Records --
+@               IN      NS      ns1.ch13f.de.
+ns1             IN      A       168.119.172.132
+@               IN      NS      ns2.ch13f.de.
+ns2             IN      A       49.12.236.130
+
+
+; -- MX Records --
+@		        IN	    MX 10   mail
+;mail            IN      A      xxx.xxx.xxx.xxx
+
+
+; -- CNAME Records --
+autoconfig		IN	    CNAME	mail
+autodiscover    IN      CNAME   mail
+
+
+; -- TXT Records --
+@		        IN	    TXT	    "v=spf1 mx ~all"
+
+; -- PTR Records --
+;78.47.231.118.IN-ADDR.ARPA.
+;10             IN      PTR     mail.ch13f.de
+
+
+; -- dns records --
+zwerggans       IN      A       95.217.156.114
+*.zwerggans     IN      A       95.217.156.114
+spatz           IN      A       116.202.8.94
+*.spatz         IN      A       116.202.8.94
+schwalbe        IN      A       23.88.97.13
+*.schwalbe      IN      A       23.88.97.13
+
+
+; -- wildcard --
+
+*               IN      A       23.88.97.13
+                IN      A       116.202.8.94
+                IN      A       95.217.156.114

@@ -3,6 +3,8 @@ all:
     schwalbe.youngandhungry.org:
     spatz.youngandhungry.org:
     zwerggans.youngandhungry.org:
+    colibri.youngandhungry.org:
+    kiwi.youngandhungry.org:
 
 Hauptmann:
   hosts:
@@ -12,3 +14,5 @@ Leutnant:
   hosts:
     spatz.youngandhungry.org:
     zwerggans.youngandhungry.org:
+    colibri.youngandhungry.org:
+    kiwi.youngandhungry.org:
