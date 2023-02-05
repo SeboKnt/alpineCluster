@@ -13,6 +13,8 @@ sudo apt update && sudo apt install terraform
 terraform init
 terraform apply
 
+sleep 20s
+
 server=("schwalbe" "spatz" "zwerggans" "colibri" "kiwi")
 for hosts in "${server[@]}"
 do
@@ -22,3 +24,5 @@ do
    ssh root@$hosts.youngandhungry.org "echo $hosts > /etc/hostname"
    ssh root@$hosts.youngandhungry.org "reboot"
 done
+
+sleep 5s
