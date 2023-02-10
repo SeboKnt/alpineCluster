@@ -8,6 +8,8 @@
   ansible.builtin.copy:
     src: "htdocs"
     dest: /root/
+    mode: '0777'
+
 
 - name: helm install apache from local source
   kubernetes.core.helm:

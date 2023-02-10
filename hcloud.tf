@@ -30,29 +30,29 @@ data "hcloud_image" "mint" {
   with_selector = "origin"
 }
 
-resource "hcloud_server" "node-colibri" {
-  name        = "colibri"
-  image       = data.hcloud_image.mint.id
-  server_type = "cx21"
-  location    = "nbg1"
-  public_net {
-    ipv4_enabled = true
-    ipv4 = data.hcloud_primary_ip.ip-colibri.id
-    ipv6_enabled = true
-  }
-}
-
-resource "hcloud_server" "node-kiwi" {
-  name        = "kiwi"
-  image       = data.hcloud_image.mint.id
-  server_type = "cx21"
-  location    = "nbg1"
-  public_net {
-    ipv4_enabled = true
-    ipv4 = data.hcloud_primary_ip.ip-kiwi.id
-    ipv6_enabled = true
-  }
-}
+#resource "hcloud_server" "node-colibri" {
+#  name        = "colibri"
+#  image       = data.hcloud_image.mint.id
+#  server_type = "cx21"
+#  location    = "nbg1"
+#  public_net {
+#    ipv4_enabled = true
+#    ipv4 = data.hcloud_primary_ip.ip-colibri.id
+#    ipv6_enabled = true
+#  }
+#}
+#
+#resource "hcloud_server" "node-kiwi" {
+#  name        = "kiwi"
+#  image       = data.hcloud_image.mint.id
+#  server_type = "cx21"
+#  location    = "nbg1"
+#  public_net {
+#    ipv4_enabled = true
+#    ipv4 = data.hcloud_primary_ip.ip-kiwi.id
+#    ipv6_enabled = true
+#  }
+#}
 
 resource "hcloud_server" "node-zwerggans" {
   name        = "zwerggans"
