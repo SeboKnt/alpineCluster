@@ -1,3 +1,5 @@
 ---
 - name: create K3s cluster
   shell: curl -sfL https://get.k3s.io | K3S_TOKEN=MachMakTokenPLS sh -s - server --cluster-init
+
+  # TODO: Encrypt token

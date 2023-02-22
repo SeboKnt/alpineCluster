@@ -1,3 +1,5 @@
 ---
 - name: join masters to cluster
   shell: curl -sfL https://get.k3s.io | K3S_TOKEN=MachMakTokenPLS sh -s - server --server https://23.88.97.13:6443
+
+  # TODO: Encrypt token
