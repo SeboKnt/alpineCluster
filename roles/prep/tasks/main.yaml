@@ -11,8 +11,11 @@
     update_cache: true
 
 - name: Install python packages
-  ansible.builtin.pip:
-    name: pyyaml
+  pip:
+    name:
+      - pyyaml
+      - kubernetes 
+      - jmespath
 
 #- name: Recursively remove everything in /tmp/
 #  ansible.builtin.file:

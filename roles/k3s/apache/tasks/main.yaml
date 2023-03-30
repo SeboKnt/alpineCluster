@@ -1,0 +1,18 @@
+---
+- name: copy apachechart into the right path
+  ansible.builtin.copy:
+    src: "apachechart"
+    dest: /root/
+
+- name: copy htdocs into the right path
+  ansible.builtin.copy:
+    src: "htdocs"
+    dest: /root/
+    mode: '0777'
+
+
+- name: helm install apache from local source
+  kubernetes.core.helm:
+    name: apache
+    namespace: default
+    chart_ref: "/root/apachechart"

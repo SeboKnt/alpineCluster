@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: apachephp
+  labels: 
+    app: apachephp
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+  selector:
+     app: apachephp

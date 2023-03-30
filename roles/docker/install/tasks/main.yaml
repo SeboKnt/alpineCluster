@@ -1,7 +1,7 @@
 ---
-- name: Update repositories and install curl package
+- name: Update repositories and install docker package
   community.general.apk:
-    name: docker, docker-compose
+    name: docker, docker-cli-compose
     update_cache: true
 
 - name: Make "docker" start on boot and start now, if not started.

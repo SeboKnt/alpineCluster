@@ -1,0 +1,16 @@
+---
+- name: copy bind9chart into the right path
+  ansible.builtin.copy:
+    src: "bind9chart"
+    dest: /root
+  
+- name: copy configfiles into the right path
+  ansible.builtin.copy:
+    src: "configfiles"
+    dest: /root
+
+- name: Deploy Bind9 chart from local path
+  kubernetes.core.helm:
+    name: bind9
+    chart_ref: /root/bind9chart
+    release_namespace: default

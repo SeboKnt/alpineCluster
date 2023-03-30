@@ -1,0 +1,19 @@
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: apachephp
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: web
+
+spec:
+  rules:
+    - host: nichtsparkasse.youngandhungry.org
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: apachephp
+                port:
+                  number: 80

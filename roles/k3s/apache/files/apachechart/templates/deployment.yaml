@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apachephp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apachephp
+  template:
+    metadata:
+      labels:
+        app: apachephp
+    spec:
+      containers:
+        - name: apache
+          image: webdevops/php-apache:8.0
+          ports:
+            - containerPort: 80
+          volumeMounts:
+          - mountPath: /app
+            name: apachefiles
+      volumes:
+      - name: apachefiles
+        persistentVolumeClaim:
+          claimName: pvc

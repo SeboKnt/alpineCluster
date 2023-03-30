@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: bind9
+  labels: 
+    app: bind9
+spec:
+  type: ClusterIP
+  ports:
+    - port: 53
+      targetPort: 53
+      protocol: UDP
+  externalIPs:
+    - 168.119.172.132
+    - 49.12.236.130
+  selector:
+     app: bind9
