@@ -15,6 +15,7 @@
     name:
       - pyyaml
       - kubernetes 
+      - jmespath
 
 #- name: Recursively remove everything in /tmp/
 #  ansible.builtin.file:

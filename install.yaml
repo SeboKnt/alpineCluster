@@ -3,17 +3,13 @@
   roles:
     - role: prep
 
-- hosts: Hauptmann
+- hosts: kubes
   roles:
-    - role: k3s/01Hauptmann
+    - role: k3s/01Build
 
-- hosts: Leutnant
-  roles:
-    - role: k3s/02Leutnant
-
-- hosts: all
-  roles:
-    - role: k3s/03Helm
+#- hosts: all
+#  roles:
+#    - role: k3s/03Helm
 
 #- hosts: Hauptmann
 #  roles:
