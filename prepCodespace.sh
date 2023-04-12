@@ -37,8 +37,7 @@ rm -rf age
 # mv sops to the right place
 ## gpg -c <file> # encrypted the file
 mkdir ~/.sops
-gpg -d .sops/key.txt.gpg
-mv .sops/key.txt ~/.sops
+gpg -o ~/.sops/key.txt -d .sops/key.txt.gpg
 
 # set bashrc
 echo "export SOPS_AGE_KEY_FILE=$HOME/.sops/key.txt" >> ~/.bashrc
