@@ -34,7 +34,15 @@ sudo mv age/age-keygen /usr/local/bin
 rm -rf age.tar.gz
 rm -rf age
 
+# mv sops to the right place
+## gpg -c <file> # encrypted the file
+mkdir ~/.sops
+gpg -d .sops/key.txt.gpg
+mv .sops/key.txt ~/.sops
 
+# set bashrc
+echo "export SOPS_AGE_KEY_FILE=$HOME/.sops/key.txt" >> ~/.bashrc
+source ~/.bashrc
 
 
 # create the server
