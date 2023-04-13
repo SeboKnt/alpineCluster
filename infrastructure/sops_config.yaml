@@ -1,0 +1,5 @@
+# sops_config.yaml
+creation_rules:
+  - path_regex: hcloud_token\.tfvars
+    encrypted_regex: ^hcloud_token$
+    encryption_method: age
