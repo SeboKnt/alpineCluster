@@ -1,0 +1,9 @@
+# cloud-conifg
+
+package_update: true
+package_update: upgrade
+packages:
+  - mtr
+  - nmap
+runcmd:
+  - echo "cloud-init done" > /root/init-msg
