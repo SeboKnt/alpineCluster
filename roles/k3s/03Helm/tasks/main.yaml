@@ -1,4 +1,9 @@
 ---
+
+#######
+## Pass auf das ist alles für
+## x86 und nicht ARM
+####
 - name: download helm
   ansible.builtin.unarchive:
     src: https://get.helm.sh/helm-v3.10.3-linux-amd64.tar.gz

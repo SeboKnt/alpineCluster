@@ -5,22 +5,15 @@
   vars:
     init_node: "{{ groups['master'][0] }}"
     init_ip: "{{ ansible_host }}"
-    register: k3s_init
 
-- name: Add additional K3s master nodes
+- name: add additional K3s master nodes
   shell: curl -sfL https://get.k3s.io | K3S_TOKEN={{ k3s_cluster_token }} K3S_URL=https://{{ init_ip }}:6443 sh -s - server
   when: inventory_hostname in groups['master'] and inventory_hostname != groups['master'][0]
   vars:
-    init_node: "{{ groups['master'][0] }}"
-    init_ip: "{{ hostvars[init_node].ansible_host }}"
+    init_ip: "{{ hostvars[groups['master'][0]].ansible_host }}"
 
-
-#- name: join Worker
-
-
-
-  
-#- name: join worker to cluster
-#  shell: curl -sfL https://get.k3s.io | K3S_TOKEN={{ k3s_cluster_token }} sh -s - agent --server https://{{ k3s_master_node }}:6443
-#  vars:
-#    init_node: "{{ groups['kubes'][0] }}"
+- name: join worker nodes to cluster
+  shell: curl -sfL https://get.k3s.io | K3S_TOKEN={{ k3s_cluster_token }} sh -s - agent --server https://{{ init_ip }}:6443
+  when: inventory_hostname in groups['worker']
+  vars:
+    init_ip: "{{ hostvars[groups['master'][0]].ansible_host }}"
