@@ -2,9 +2,6 @@
 - hosts: all
   roles:
     - role: prep
-
-- hosts: master
-  roles:
     - role: k3s/01Build
 
 #- hosts: all

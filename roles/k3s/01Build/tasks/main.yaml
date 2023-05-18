@@ -3,33 +3,21 @@
   shell: curl -sfL https://get.k3s.io | K3S_TOKEN={{ k3s_cluster_token }} sh -s - server --cluster-init
   when: inventory_hostname == init_node
   vars:
-    init_node: "{{ groups['kubes'][0] }}"
+    init_node: "{{ groups['master'][0] }}"
     init_ip: "{{ ansible_host }}"
     register: k3s_init
-#
-#- set_fact:
-#    init_ip: "{{ result | json_query('json.ip') }}"
-#  when: inventory_hostname == init_node
-#  vars:
-#    init_node: "{{ groups['kubes'][0] }}"
 
-#- debug: 
-#    msg: "Test {{ k3s_init.vars.init_ip }}"
-#  when: k3s_init is defined and k3s_init.vars is defined and 'init_ip' in k3s_init.vars
+- name: Add additional K3s master nodes
+  shell: curl -sfL https://get.k3s.io | K3S_TOKEN={{ k3s_cluster_token }} K3S_URL=https://{{ init_ip }}:6443 sh -s - server
+  when: inventory_hostname in groups['master'] and inventory_hostname != groups['master'][0]
+  vars:
+    init_node: "{{ groups['master'][0] }}"
+    init_ip: "{{ hostvars[init_node].ansible_host }}"
 
 
-- name: Print all available facts
-  ansible.builtin.debug:
-    var: ansible_facts
+#- name: join Worker
 
 
-
-#- name: join masters to cluster
-#  shell: curl -sfL https://get.k3s.io | K3S_TOKEN={{ k3s_cluster_token }} sh -s - server --server https://{{ init_output.stdout_lines[-1].split(' ')[2] }}:6443
-#  when: inventory_hostname != init_node
-#  vars:
-#    init_node: "{{ groups['kubes'][0] }}"
-#  register: init_output
 
   
 #- name: join worker to cluster

@@ -4,11 +4,13 @@
     path: /etc/apk/repositories
     line: http://dl-cdn.alpinelinux.org/alpine/v3.16/community
     create: yes
+  when: ansible_distribution == 'Alpine'
 
 - name: Update repositories and install curl package
   community.general.apk:
     name: curl, tar, python3, py3-pip
     update_cache: true
+  when: ansible_distribution == 'Alpine'
 
 - name: Install python packages
   pip:
@@ -16,8 +18,4 @@
       - pyyaml
       - kubernetes 
       - jmespath
-
-#- name: Recursively remove everything in /tmp/
-#  ansible.builtin.file:
-#    path: /tmp/*
-#    state: absent
+  when: ansible_distribution == 'Alpine'

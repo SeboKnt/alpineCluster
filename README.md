@@ -22,3 +22,8 @@ ansible -v
 If you are on github Codespaces you can use the bash script [prepCodespace.sh](prepCodespace.sh)
 
 After that please c
+
+
+# Run Ansible
+
+`ansible-playbook -install.yaml -i inventory/<inventory.yaml> --ask-vault-pass`
