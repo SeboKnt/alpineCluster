@@ -1,23 +1,17 @@
 ---
 all:
   children:
-    k8s:
+    k3s:
       children:
-        kube_masters:
+        master:
           hosts:
             %{ for server in jsondecode(master_servers) }
             ${server.name}:
               ansible_host: ${server.ipv4_address}
             %{ endfor }
-        kube_workers:
+        worker:
           hosts:
             %{ for server in jsondecode(worker_servers) }
-            ${server.name}:
-              ansible_host: ${server.ipv4_address}
-            %{ endfor }
-        proxy:
-          hosts:
-            %{ for server in jsondecode(proxy_servers) }
             ${server.name}:
               ansible_host: ${server.ipv4_address}
             %{ endfor }

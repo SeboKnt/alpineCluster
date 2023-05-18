@@ -3,7 +3,7 @@
   roles:
     - role: prep
 
-- hosts: kubes
+- hosts: master
   roles:
     - role: k3s/01Build
 

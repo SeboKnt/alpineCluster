@@ -3,3 +3,12 @@
 sops.deb
 age.tar.gz
 age
+
+infrastructure/.terraform
+infrastructure/.terraform.lock.hcl
+infrastructure/.terraform.tfstate.lock.info
+infrastructure/terraform.tfstate
+infrastructure/terraform.tfstate.backup
+infrastructure/server_ips.yaml
+
+inventory/hetzner_inventory.yaml
