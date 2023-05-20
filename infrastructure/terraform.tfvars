@@ -15,9 +15,4 @@ server = {
     region = "fsn1"
     role   = "master"
   }
-  srv3 = {
-    type   = "cax11"
-    region = "fsn1"
-    role   = "master"
-  }
 }

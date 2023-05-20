@@ -1,17 +1,4 @@
----
-- name: Remove SSH IPs from known_hosts
-  known_hosts:
-    path: "{{ lookup('env', 'HOME') }}/.ssh/known_hosts"
-    name: "{{ item }}"
-    state: absent
-  loop: "{{ groups['all'] }}"
-  when: hostvars[item].ansible_host is defined
-
-- name: Save SSH fingerprints
-  shell: ssh-keyscan -H {{ hostvars[item].ansible_host }} >> "{{ lookup('env', 'HOME') }}/.ssh/known_hosts"
-  loop: "{{ groups['all'] }}"
-  when: hostvars[item].ansible_host is defined
-  
+---  
 - name: Add a repo
   ansible.builtin.lineinfile:
     path: /etc/apk/repositories

@@ -1,2 +1,35 @@
 ---
+- name: Download Flux installation script
+  get_url:
+    url: https://fluxcd.io/install.sh
+    dest: /tmp/install_flux.sh
 
+- name: Run Flux installation script
+  command: sudo bash /tmp/install_flux.sh
+
+- name: Creates directory .kube
+  file:
+    path: /root/.kube/
+    state: directory
+
+- name: Copy K3s for kubectl
+  ansible.builtin.copy:
+    src: /etc/rancher/k3s/k3s.yaml
+    dest: /root/.kube/config
+    remote_src: true
+    mode: '0600'
+
+- name: Bootstrap FluxCD
+  become: true
+  command: >
+    flux bootstrap github \
+    --owner={{ github_user }} \
+    --repository={{ github_repo }} \
+    --branch={{ github_branch }} \
+    --path=clusters/{{ cluster_name }} \
+    --personal
+  environment:
+    GITHUB_TOKEN: "{{ github_token }}"
+  when: inventory_hostname == first_node
+  vars:
+    first_node: "{{ groups['master'][0] }}"
