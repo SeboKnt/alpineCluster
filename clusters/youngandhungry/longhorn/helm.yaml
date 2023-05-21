@@ -6,7 +6,7 @@ metadata:
 spec:
   interval: 5m
   chart:
-    spec:
-      chart: longhorn
-      repository: https://charts.longhorn.io
+    repository: https://charts.longhorn.io
+    name: longhorn
+    version: latest
   values:
