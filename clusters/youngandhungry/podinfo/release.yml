@@ -15,10 +15,9 @@ spec:
         namespace: default
       interval: 1m
   values:
-    replicaCount: 3
-    foo: value1
-    bar:
-    baz: value2
-    oof:
-    - item1
-    - item2
+    replicaCount: 1
+    service:
+      ports:
+        - name: http
+          port: 9090
+          targetPort: http
