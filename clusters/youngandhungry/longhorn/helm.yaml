@@ -1,17 +1,16 @@
----
-  apiVersion: helm.toolkit.fluxcd.io/v2beta1
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: longhorn
   namespace: longhorn
 spec:
-  interval: 5m
   chart:
     spec:
       chart: longhorn
+      version: latest
       sourceRef:
         kind: HelmRepository
         name: longhorn
         namespace: longhorn
-      version: latest
+  interval: 5m
   values:
