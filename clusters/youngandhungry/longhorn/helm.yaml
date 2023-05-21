@@ -1,12 +1,14 @@
+---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: longhorn
-  namespace: default
+  namespace: longhorn
 spec:
   interval: 5m
   chart:
-    repository: https://charts.longhorn.io
-    name: longhorn
-    version: latest
+    spec:
+      chart: longhorn
+      repository: https://charts.longhorn.io
+      version: latest
   values:
