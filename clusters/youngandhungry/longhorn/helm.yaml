@@ -1,5 +1,5 @@
 ---
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
+  apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: longhorn
@@ -9,6 +9,9 @@ spec:
   chart:
     spec:
       chart: longhorn
-      repository: https://charts.longhorn.io
+      sourceRef:
+        kind: HelmRepository
+        name: longhorn
+        namespace: longhorn
       version: latest
   values:
